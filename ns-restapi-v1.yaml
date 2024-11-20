@@ -1,0 +1,439 @@
+openapi: 3.0.0
+info:
+  title: NetSuite REST API
+  description: NetSuite REST API specification for use with Swagger Editor
+  version: "2024.2"
+servers:
+  - url: https://{accountId}.suitetalk.api.netsuite.com/services/rest/record/v1
+    variables:
+      accountId:
+        default: "YOUR_ACCOUNT_ID"
+        description: Your NetSuite account ID
+security:
+  - oauth2:
+      - rest_webservices
+paths:
+  /customer:
+    get:
+      summary: Retrieve a list of customers
+      security:
+        - oauth2:
+            - rest_webservices
+      responses:
+        "200":
+          description: A list of customers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Customer"
+    post:
+      summary: Create a new customer
+      security:
+        - oauth2:
+            - rest_webservices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Customer"
+      responses:
+        "201":
+          description: Customer created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Customer"
+  /customer/{id}:
+    get:
+      summary: Retrieve a specific customer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The internal ID of the customer
+      security:
+        - oauth2:
+            - rest_webservices
+      responses:
+        "200":
+          description: Customer details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Customer"
+    patch:
+      summary: Update a specific customer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The internal ID of the customer
+      security:
+        - oauth2:
+            - rest_webservices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Customer"
+      responses:
+        "200":
+          description: Customer updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Customer"
+    delete:
+      summary: Delete a specific customer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The internal ID of the customer
+      security:
+        - oauth2:
+            - rest_webservices
+      responses:
+        "204":
+          description: Customer deleted successfully
+  /invoice:
+    get:
+      summary: Retrieve a list of invoices
+      security:
+        - oauth2:
+            - rest_webservices
+      responses:
+        "200":
+          description: A list of invoices
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Invoice"
+    post:
+      summary: Create a new invoice
+      security:
+        - oauth2:
+            - rest_webservices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Invoice"
+      responses:
+        "201":
+          description: Invoice created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Invoice"
+  /invoice/{id}:
+    get:
+      summary: Retrieve a specific invoice
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The internal ID of the invoice
+      security:
+        - oauth2:
+            - rest_webservices
+      responses:
+        "200":
+          description: Invoice details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Invoice"
+    patch:
+      summary: Update a specific invoice
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The internal ID of the invoice
+      security:
+        - oauth2:
+            - rest_webservices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Invoice"
+      responses:
+        "200":
+          description: Invoice updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Invoice"
+    delete:
+      summary: Delete a specific invoice
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The internal ID of the invoice
+      security:
+        - oauth2:
+            - rest_webservices
+      responses:
+        "204":
+          description: Invoice deleted successfully
+  /salesOrder:
+    get:
+      summary: Retrieve a list of sales orders
+      security:
+        - oauth2:
+            - rest_webservices
+      responses:
+        "200":
+          description: A list of sales orders
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/SalesOrder"
+    post:
+      summary: Create a new sales order
+      security:
+        - oauth2:
+            - rest_webservices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SalesOrder"
+      responses:
+        "201":
+          description: Sales order created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SalesOrder"
+  /salesOrder/{id}:
+    get:
+      summary: Retrieve a specific sales order
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The internal ID of the sales order
+      security:
+        - oauth2:
+            - rest_webservices
+      responses:
+        "200":
+          description: Sales order details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SalesOrder"
+    patch:
+      summary: Update a specific sales order
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The internal ID of the sales order
+      security:
+        - oauth2:
+            - rest_webservices
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SalesOrder"
+      responses:
+        "200":
+          description: Sales order updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SalesOrder"
+    delete:
+      summary: Delete a specific sales order
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The internal ID of the sales order
+      security:
+        - oauth2:
+            - rest_webservices
+      responses:
+        "204":
+          description: Sales order deleted successfully
+  /item:
+    get:
+      summary: Retrieve a list of items
+      security:
+        - oauth2:
+            - rest_webservices
+      responses:
+        "200":
+          description: A list of items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Item"
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{accountId}.suitetalk.api.netsuite.com/services/rest/auth/oauth2/v1/token
+          scopes:
+            rest_webservices: Access to NetSuite REST web services
+  schemas:
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The internal ID of the customer
+        companyName:
+          type: string
+          description: The name of the company
+        email:
+          type: string
+          description: The email address of the customer
+        phone:
+          type: string
+          description: The phone number of the customer
+        address:
+          type: string
+          description: The address of the customer
+    Invoice:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The internal ID of the invoice
+        tranDate:
+          type: string
+          format: date
+          description: The transaction date of the invoice
+        entity:
+          $ref: "#/components/schemas/CustomerRef"
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/InvoiceItem"
+          description: The list of items in the invoice
+        total:
+          type: number
+          format: double
+          description: The total amount of the invoice
+    SalesOrder:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The internal ID of the sales order
+        tranDate:
+          type: string
+          format: date
+          description: The transaction date of the sales order
+        entity:
+          $ref: "#/components/schemas/CustomerRef"
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/SalesOrderItem"
+          description: The list of items in the sales order
+        total:
+          type: number
+          format: double
+          description: The total amount of the sales order
+    Item:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The internal ID of the item
+        displayName:
+          type: string
+          description: The display name of the item
+        itemId:
+          type: string
+          description: The item ID
+        type:
+          type: string
+          description: The type of the item
+    CustomerRef:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The internal ID of the customer
+        refName:
+          type: string
+          description: The display name of the customer
+    InvoiceItem:
+      type: object
+      properties:
+        item:
+          type: string
+          description: The internal ID of the item
+        quantity:
+          type: number
+          format: double
+          description: The quantity of the item
+        rate:
+          type: number
+          format: double
+          description: The rate of the item
+        amount:
+          type: number
+          format: double
+          description: The total amount for this item
+    SalesOrderItem:
+      type: object
+      properties:
+        item:
+          type: string
+          description: The internal ID of the item
+        quantity:
+          type: number
+          format: double
+          description: The quantity of the item
+        rate:
+          type: number
+          format: double
+          description: The rate of the item
+        amount:
+          type: number
+          format: double
+          description: The total amount for this item
