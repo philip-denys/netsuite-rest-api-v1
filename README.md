@@ -6,7 +6,7 @@ This repository contains the OpenAPI (Swagger) specification for the NetSuite RE
 ## Overview
 
 - **API Version**: 2024.2  
-- **Specification File**: `netsuite_rest_api.yaml`  
+- **Specification File**: `ns-restapi-v1.yaml`  
 - **Supported Record Types**:
   - Customer
   - Invoice
